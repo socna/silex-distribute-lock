@@ -16,7 +16,7 @@ class Lock {
     public function getLock($key) {
         return new RedisLock(
             $this->client, // Instance of RedisClient,
-            $key, // Key in storage,
+            $key // Key in storage,
         ); 
     }
 }
