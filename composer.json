@@ -1,0 +1,14 @@
+{
+    "name": "chauhm/silex-redis-lock",
+    "description": "Redis distribute lock service provider",
+    "type": "project",
+    "require": {
+        "silex/silex": "~2.0",
+        "cheprasov/php-redis-lock": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "com\\chauhm\\": "src/"
+        }
+    }
+}
