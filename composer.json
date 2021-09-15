@@ -4,7 +4,8 @@
     "type": "project",
     "require": {
         "silex/silex": "~2.0",
-        "cheprasov/php-redis-lock": "^1.0"
+        "cheprasov/php-redis-lock": "^1.0",
+        "predis/predis": "^1.1"
     },
     "autoload": {
         "psr-4": {
