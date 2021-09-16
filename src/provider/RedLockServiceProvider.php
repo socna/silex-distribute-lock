@@ -2,7 +2,7 @@
 
 namespace com\chauhm\provider;
 
-use com\chauhm\distributelock\RedLock;
+use com\chauhm\provider\RedLock;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
@@ -18,7 +18,9 @@ class RedLockServiceProvider implements ServiceProviderInterface {
     }
 
     protected function getClient(Container $app, $prefix){
-        return new RedLock($app[$prefix.'.config']['server'], $app[$prefix.'.config']['retryDelay'], $app[$prefix.'.config']['retryCount']);
+        return function() use($app, $prefix) {
+            return new RedLock($app[$prefix.'.config']['server'], $app[$prefix.'.config']['retryDelay'], $app[$prefix.'.config']['retryCount']);
+        };
     }
 
 

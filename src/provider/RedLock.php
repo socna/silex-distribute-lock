@@ -96,7 +96,7 @@ class RedLock
 
     private function lockInstance($instance, $resource, $token, $ttl)
     {
-        return $instance->set($resource, $token, ['NX', 'PX' => $ttl]);
+        return $instance->set($resource, $token, 'NX', 'PX', $ttl);
     }
 
     private function unlockInstance($instance, $resource, $token)
@@ -108,6 +108,6 @@ class RedLock
                 return 0
             end
         ';
-        return $instance->eval($script, [$resource, $token], 1);
+        return $instance->eval($script, 1, $resource, $token);
     }
 }
